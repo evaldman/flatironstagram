@@ -1,0 +1,15 @@
+<h1>All Pictures</h1>
+
+
+<ul>
+
+    <% @pictures.each do |pic| %>
+        <li>
+        <%= link_to pic.title, picture_path(pic) %>
+        <img alt=<%= pic.title %> src=<%= pic.image %>/>
+
+        </li>
+        <% end %>
+
+
+</ul>
