@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 
   def create
     new_user = User.create(user_params)
+    redirect_to user_path(new_user)
   end
 
   def show

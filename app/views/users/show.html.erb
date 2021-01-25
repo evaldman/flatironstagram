@@ -3,7 +3,7 @@
 <ul>
     <% @user.pictures.each do |pic| %>
         <li>
-        <a href="<%= picture_url(pic) %>"> <img alt=<%= pic.title %> src=<%= pic.image %>/> </a>
+        <a href="<%= picture_url(pic) %>"> <img  class="picture" alt=<%= pic.title %> src=<%= pic.image %>/> </a>
         </li>
     <% end %>
 
@@ -12,4 +12,8 @@
 </ul>
 
 <%= button_to "Upload New Picture", new_picture_path, method: "get" %>
+</br>
+</br>
+</br>
+
 
