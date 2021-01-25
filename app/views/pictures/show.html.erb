@@ -7,7 +7,34 @@
   </li>
 
   <li>
-    Image: <%= @picture.image %>
+    Image: <img alt=<%= @picture.title %> src=<%= @picture.image %>/>
+  </li>
+
+  <li>
+    Tags:
+      <ul>
+        <% @picture.picture_tags.each do |pic_tag| %>
+          <li>
+          <%= pic_tag.tag.name %>
+          </li>
+          <% end %>
+
+      </ul>
+
+  </li>
+
+  <li>
+    Comments:
+      <ul>
+        <% @picture.comments.each do |pic_tag| %>
+          <li>
+          <%= pic_tag.content %>
+          </li>
+          <% end %>
+
+      </ul>
+
   </li>
 
 </ul>
+

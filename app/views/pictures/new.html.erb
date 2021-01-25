@@ -1,0 +1,17 @@
+<h1> Upload New Photo </h1>
+
+<%= form_for @new_picture do |f| %>
+    <%= f.label :user_id, "Username:" %>
+    <%= f.collection_select :user_id, User.all, :id, :username, prompt: "Select User" %> 
+    <br /> 
+    <br />
+    <%= f.label :image %>
+    <%= f.text_field :image %> 
+    <br /> 
+    <br />
+    <%= f.label :title %>
+    <%= f.text_field :title %> 
+    <br /> 
+    <br />
+    <%= f.submit "Upload Photo"%>
+ <% end %>

@@ -1,0 +1,15 @@
+<h1> <%= @user.username %>'s Pictures:</h1>
+
+<ul>
+    <% @user.pictures.each do |pic| %>
+        <li>
+        <a href="<%= picture_url(pic) %>"> <img alt=<%= pic.title %> src=<%= pic.image %>/> </a>
+        </li>
+    <% end %>
+
+
+
+</ul>
+
+<%= button_to "Upload New Picture", new_picture_path, method: "get" %>
+

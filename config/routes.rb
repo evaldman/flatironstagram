@@ -1,11 +1,18 @@
 Rails.application.routes.draw do
-  get 'pictures/index'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  
+
+  
 
 
+## Picture routes ##
 get '/pictures', to: 'pictures#index', as: 'pictures'
-get '/picture/:id', to: 'pictures#show', as: 'picture'
+get '/pictures/new', to: 'pictures#new', as: 'new_picture'
+post '/pictures', to: 'pictures#create'
+get '/pictures/:id', to: 'pictures#show', as: 'picture'
 
+## User routes ##
+get 'users/new', to: 'users#new', as: 'new_user'
+get 'users/:id', to: 'users#show', as: 'user'
 
 
 
