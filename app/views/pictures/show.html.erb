@@ -1,15 +1,12 @@
 <h1> Picture Page </h1>
 
 <ul>
-  
   <li>
     Title: <%= @picture.title %>
   </li>
-
   <li>
     <img  class="picture" alt=<%= @picture.title %> src=<%= @picture.image %>/>
   </li>
-
   <li>
     Tags:
       <ul>
@@ -20,9 +17,7 @@
           <% end %>
       </ul>
   </li>
-
   </br>
-
   <li>
     Comments:
       <ul>
@@ -33,10 +28,9 @@
           <% end %>
       </ul>
   </li>
-
 </br>
-
   <%= button_to "Leave Comment", new_comment_path, method: "get" %>
-
+  </br>
+  <%= button_to "All Pictures", pictures_path, method: "get" %>
 </ul>
 

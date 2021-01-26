@@ -1,23 +1,9 @@
 class TagsController < ApplicationController
   
   def index
+    @tags = Tag.all
 
   end
 
-  def show
-
-  end
-
-  def new
-    @tag = Tag.new
-  end
-
-  def create
-    
-  end
-
-  def edit
-
-  end
 
 end

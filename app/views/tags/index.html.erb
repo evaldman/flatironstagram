@@ -1,10 +1,9 @@
-<h1>All Pictures</h1>
-
+<h1>Pictures by Tags</h1>
 
 <ul>
-    <% @pictures.each do |pic| %>
+    <% @tags.each do |tag| %>
         <li>
-        <%= link_to pic.title, picture_path(pic) %>
+        <%= tag.name%>
         </li>
     <% end %>
     </br>

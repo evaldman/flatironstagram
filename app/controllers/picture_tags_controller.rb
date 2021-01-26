@@ -1,7 +1,7 @@
 class PictureTagsController < ApplicationController
   
-  def new
+  # def new
     
-  end
+  # end
 
 end

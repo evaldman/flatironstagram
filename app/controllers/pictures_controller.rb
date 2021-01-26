@@ -15,7 +15,7 @@ class PicturesController < ApplicationController
       find_tag = Tag.find_by(name: tag_name)
       new_tag = Tag.create(name: tag_name) unless find_tag 
       tags_for_pic << find_tag ? find_tag : new_tag  unless find_tag.nil? #turnery, if find_tag exists(not nil) shovel find_tag into array, 
-                                                      #otherwise shovel new tag into array
+      #otherwise shovel new tag into array
       #make a new empty array of tags, 
       #for each tag_name in out params, 
       #find the tag that already exists or create one if it there is not one
