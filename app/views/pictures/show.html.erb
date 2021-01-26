@@ -7,7 +7,7 @@
   </li>
 
   <li>
-    Image: <img  class="picture" alt=<%= @picture.title %> src=<%= @picture.image %>/>
+    <img  class="picture" alt=<%= @picture.title %> src=<%= @picture.image %>/>
   </li>
 
   <li>
@@ -18,23 +18,25 @@
           <%= pic_tag.tag.name %>
           </li>
           <% end %>
-
       </ul>
-
   </li>
+
+  </br>
 
   <li>
     Comments:
       <ul>
-        <% @picture.comments.each do |pic_tag| %>
+        <% @picture.comments.each do |comment| %>
           <li>
-          <%= pic_tag.content %>
+          <%= comment.user.username %> - <%= comment.content %> 
           </li>
           <% end %>
-
       </ul>
-
   </li>
+
+</br>
+
+  <%= button_to "Leave Comment", new_comment_path, method: "get" %>
 
 </ul>
 

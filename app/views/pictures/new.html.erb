@@ -13,5 +13,15 @@
     <%= f.text_field :title %> 
     <br /> 
     <br />
+    <%= label_tag :tag, "Pick a Tag" %>
+    <%= f.fields_for :tag, Tag.new do |tag_attributes| %> 
+        <% Tag.all.each do |tag| %>
+            <%= tag_attributes.label :name, tag.name %>
+            <%= tag_attributes.check_box :name, {multiple: true}, tag.name, nil %>
+        <% end %>
+        </br>
+        <%= tag_attributes.label :name %>
+        <%= tag_attributes.text_field :name, multiple: true %>
+    <% end %>
     <%= f.submit "Upload Photo"%>
  <% end %>

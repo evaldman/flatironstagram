@@ -1,0 +1,17 @@
+<h1>Comments</h1>
+<%= form_for @new_comment do |f| %>
+    <%= f.label :user_id, "Username:" %>
+    <%= f.collection_select :user_id, User.all, :id, :username, prompt: "Select User" %> 
+    <br /> 
+    <br />
+    <%= f.label :picture_id, "Title:" %>
+    <%= f.collection_select :picture_id, Picture.all, :id, :title, prompt: "Select Picture" %> 
+    <br /> 
+    <br />
+    <%= f.label :content, "Comment" %>
+    <%= f.text_area :content %> 
+    <br /> 
+    <br />
+   
+    <%= f.submit "Post Comment"%>
+ <% end %>
