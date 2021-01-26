@@ -10,14 +10,21 @@ class PicturesController < ApplicationController
 
   def create
     # byebug
-    tags_for_pic = []
+    tags_for_pic = []   #make a new empty array of tags 
     picture_params[:tag][:name].each do |tag_name|
       find_tag = Tag.find_by(name: tag_name)
       new_tag = Tag.create(name: tag_name) unless find_tag 
-      tags_for_pic << find_tag ? find_tag : new_tag  unless find_tag.nil? #turnery, if find_tag exists(not nil) shovel find_tag into array, 
+      if new_tag
+        tags_for_pic << new_tag  
+      end
+      if find_tag
+        tags_for_pic << find_tag
+      end
+      #  tags_for_pic << find_tag ? find_tag : new_tag  unless find_tag.nil? 
+      #if find_tag exists(not nil) shovel find_tag into array, 
       #otherwise shovel new tag into array
-      #make a new empty array of tags, 
-      #for each tag_name in out params, 
+      
+      #for each tag_name in params, 
       #find the tag that already exists or create one if it there is not one
       #and shovel it into out array of tags
     end
@@ -30,6 +37,12 @@ class PicturesController < ApplicationController
 
   def show
     @picture = Picture.find(params[:id])
+  end
+
+  def destroy
+    @picture = Picture.find(params[:id])
+    @picture.destroy
+    redirect_to pictures_path
   end
 
   private

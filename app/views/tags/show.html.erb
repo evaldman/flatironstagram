@@ -1,0 +1,10 @@
+<h1> <%= @tag.name %> </h1>
+
+
+<ul>
+    <% @tag.picture_tags.each do |pic_tag| %>
+        <li>
+        <a href="<%= picture_url(pic_tag.picture) %>"><img  class="picture" alt=<%= pic_tag.picture.title %> src=<%= pic_tag.picture.image %>/> </a>
+        </li>
+    <% end %>
+</ul>

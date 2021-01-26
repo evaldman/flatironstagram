@@ -6,14 +6,12 @@
         <a href="<%= picture_url(pic) %>"> <img  class="picture" alt=<%= pic.title %> src=<%= pic.image %>/> </a>
         </li>
     <% end %>
-
-
-
 </ul>
 
 <%= button_to "Upload New Picture", new_picture_path, method: "get" %>
 </br>
+<%= button_to "Update Your Info", edit_user_path, method: "get" %>
 </br>
 </br>
-
+</br>
 

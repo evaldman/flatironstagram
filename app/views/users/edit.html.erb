@@ -1,0 +1,14 @@
+<h1>Welcome <%= @user.username %></h1>
+
+<h3> Please fill out to update: </h3>
+<%= form_for @user do |f| %>
+    <%= f.label :email %>
+    <%= f.text_field :email %> 
+    <br /> 
+    <br />
+    <%= f.label :username %>
+    <%= f.text_field :username %> 
+    <br /> 
+    <br />
+    <%= f.submit "Update Account"%>
+ <% end %>
