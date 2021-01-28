@@ -4,4 +4,6 @@ class Picture < ApplicationRecord
   has_many :picture_tags, dependent: :destroy
   has_many :tags, through: :picture_tags
   accepts_nested_attributes_for :tags
+
+ 
 end

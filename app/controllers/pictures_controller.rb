@@ -1,7 +1,7 @@
 class PicturesController < ApplicationController
   
   def index
-    @pictures = Picture.all
+    @pictures = Picture.all.order(created_at: :desc)
   end
 
   def new
@@ -13,9 +13,11 @@ class PicturesController < ApplicationController
     tags_for_pic = []   #make a new empty array of tags 
     picture_params[:tag][:name].each do |tag_name|
       find_tag = Tag.find_by(name: tag_name)
-      new_tag = Tag.create(name: tag_name) unless find_tag 
+      # if !tag_name.empty? 
+        new_tag = Tag.create(name: tag_name) unless find_tag || tag_name.empty? 
+      # end
       if new_tag
-        tags_for_pic << new_tag  
+        tags_for_pic << new_tag
       end
       if find_tag
         tags_for_pic << find_tag
@@ -23,10 +25,10 @@ class PicturesController < ApplicationController
       #  tags_for_pic << find_tag ? find_tag : new_tag  unless find_tag.nil? 
       #if find_tag exists(not nil) shovel find_tag into array, 
       #otherwise shovel new tag into array
-      
+
       #for each tag_name in params, 
       #find the tag that already exists or create one if it there is not one
-      #and shovel it into out array of tags
+      #and shovel it into array of tags
     end
     new_picture = Picture.create(image: picture_params[:image], title: picture_params[:title], user_id: picture_params[:user_id])
     tags_for_pic.each do |tag|
@@ -50,7 +52,5 @@ class PicturesController < ApplicationController
   def picture_params
     params.require(:picture).permit(:image, :title, :user_id, tag: [name: []])
   end
-
-  
 
 end

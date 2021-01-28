@@ -1,5 +1,14 @@
 <h1>Sign Up</h1>
 
+<% if flash[:messages] %>
+  <% flash[:messages].each do |message| %>
+  <%= message %>
+  <br>
+  <% end %>
+<% end %>
+</br>
+
+
 <%= form_for @new_user do |f| %>
     <%= f.label :email %>
     <%= f.text_field :email %> 
@@ -11,3 +20,6 @@
     <br />
     <%= f.submit "Create Account"%>
  <% end %>
+
+ </br>
+ <%= button_to "All Users", users_path, method: "get" %>

@@ -12,7 +12,7 @@
       <ul>
         <% @picture.picture_tags.each do |pic_tag| %>
           <li>
-          <%= pic_tag.tag.name %>
+          <%= link_to pic_tag.tag.name, tag_path(pic_tag.tag_id) %>
           </li>
           <% end %>
       </ul>
