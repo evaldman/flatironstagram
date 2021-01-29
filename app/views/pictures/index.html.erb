@@ -4,8 +4,12 @@
 <ul>
     <% @pictures.each do |pic| %>
         <li>
-        <%= link_to pic.title, picture_path(pic) %>
+        <%= link_to pic.title, picture_path(pic) %> </br>
+        <%= pic.tags.count %>
         </li>
+    
+       
+     
     <% end %>
     </br>
     <%= button_to "All Users", users_path, method: "get" %>
